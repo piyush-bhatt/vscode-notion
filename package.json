@@ -1,14 +1,35 @@
 {
   "name": "notion",
-  "displayName": "Notion",
-  "description": "",
+  "displayName": "Notion ToDo",
+  "description": "Check your Notion ToDo lists in VSCode",
   "version": "0.0.1",
+  "publisher": "piyush-bhatt",
+  "author": {
+    "name": "Piyush Bhatt"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/piyush-bhatt/vscode-notion"
+  },
+  "bugs": {
+    "url": "https://github.com/piyush-bhatt/vscode-notion/issues"
+  },
+  "homepage": "https://github.com/piyush-bhatt/vscode-notion#readme",
+  "license": "SEE LICENSE IN LICENSE",
   "engines": {
     "vscode": "^1.46.0"
   },
   "categories": [
     "Other"
   ],
+  "keywords": [
+    "notion",
+    "todo",
+    "todos",
+    "todo-list",
+    "list"
+  ],
+  "icon": "media/icon/icon.png",
   "activationEvents": [
     "onView:notion.todo"
   ],
@@ -59,6 +80,10 @@
         "view": "notion.todo",
         "contents": "No key added for Notion.\n[Add Key](command:notion.addKey)",
         "when": "config.notion.key == ''"
+      },
+      {
+        "view": "notion.todo",
+        "contents": "Check how to create a new integration, get a Notion key and share a page with your integration [here](https://developers.notion.com/docs/getting-started)"
       }
     ],
     "menus": {
