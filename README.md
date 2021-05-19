@@ -1,65 +1,35 @@
-# notion README
+<p align="center">
+  <img src="https://raw.githubusercontent.com/piyush-bhatt/vscode-notion/master/media/icon/icon.png" alt="Notion ToDo Logo" /></a>
+</p>
 
-This is the README for your extension "notion". After writing up a brief description, we recommend including the following sections.
+> Want to keep track of ToDo lists in your Notion workspace from VSCode itself? [Notion ToDo](https://marketplace.visualstudio.com/items?itemName=piyush-bhatt.notion) helps you with the same.
 
-## Features
+# Notion ToDo
 
-Describe specific features of your extension including screenshots of your extension in action. Image paths are relative to this README file.
+Notion ToDo is a Visual Studio Code extension, primarily focused on providing a way to check the status of your ToDo lists in your Notion workspace.
 
-For example if there is an image subfolder under your extension project workspace:
+**Note:** It displays only the ToDo lists created on the top level page in a Notion workspace
 
-\!\[feature X\]\(images/feature-x.png\)
+# Settings
 
-> Tip: Many popular extensions utilize animations. This is an excellent way to show off your extension! We recommend short, focused animations that are easy to follow.
+**Notion Key:** Required to fetch data from Notion.
 
-## Requirements
+Find how to create an integration, get a Notion key and share a page with your integration [here](https://developers.notion.com/docs/getting-started).
 
-If you have any requirements or dependencies, add a section describing those and how to install and configure them.
+# Features
 
-## Extension Settings
+### Add Notion Key
 
-Include if your extension adds any VS Code settings through the `contributes.configuration` extension point.
+<p align="center">
+  <img src="https://raw.githubusercontent.com/piyush-bhatt/vscode-notion/master/media/readme/Add_Key.gif" alt="Add Key" />
+</p>
 
-For example:
+### Track a ToDo list created on Notion within VSCode
 
-This extension contributes the following settings:
+<p align="center">
+  <img src="https://raw.githubusercontent.com/piyush-bhatt/vscode-notion/master/media/readme/Check_List.gif" alt="Check List" />
+</p>
 
-* `myExtension.enable`: enable/disable this extension
-* `myExtension.thing`: set to `blah` to do something
+# Licensing
 
-## Known Issues
-
-Calling out known issues can help limit users opening duplicate issues against your extension.
-
-## Release Notes
-
-Users appreciate release notes as you update your extension.
-
-### 1.0.0
-
-Initial release of ...
-
-### 1.0.1
-
-Fixed issue #.
-
-### 1.1.0
-
-Added features X, Y, and Z.
-
------------------------------------------------------------------------------------------------------------
-
-## Working with Markdown
-
-**Note:** You can author your README using Visual Studio Code.  Here are some useful editor keyboard shortcuts:
-
-* Split the editor (`Cmd+\` on macOS or `Ctrl+\` on Windows and Linux)
-* Toggle preview (`Shift+CMD+V` on macOS or `Shift+Ctrl+V` on Windows and Linux)
-* Press `Ctrl+Space` (Windows, Linux) or `Cmd+Space` (macOS) to see a list of Markdown snippets
-
-### For more information
-
-* [Visual Studio Code's Markdown Support](http://code.visualstudio.com/docs/languages/markdown)
-* [Markdown Syntax Reference](https://help.github.com/articles/markdown-basics/)
-
-**Enjoy!**
+[MIT](https://github.com/piyush-bhatt/vscode-notion/blob/main/LICENSE) licensed

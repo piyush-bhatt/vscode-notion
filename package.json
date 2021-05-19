@@ -1,7 +1,7 @@
 {
   "name": "notion",
   "displayName": "Notion ToDo",
-  "description": "Check your Notion ToDo lists in VSCode",
+  "description": "Check Notion ToDo lists in VSCode",
   "version": "0.0.1",
   "publisher": "piyush-bhatt",
   "author": {
@@ -61,7 +61,7 @@
       "activitybar": [
         {
           "id": "notion",
-          "title": "Notion To Do's",
+          "title": "Notion ToDo",
           "icon": "media/icon/icon.svg"
         }
       ]
@@ -71,7 +71,7 @@
         {
           "type": "tree",
           "id": "notion.todo",
-          "name": "To Do Lists"
+          "name": "Lists"
         }
       ]
     },

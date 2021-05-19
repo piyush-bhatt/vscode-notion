@@ -1,9 +1,7 @@
 # Change Log
 
-All notable changes to the "notion" extension will be documented in this file.
+All notable changes to the "stocks-ticker" extension will be documented in this file.
 
-Check [Keep a Changelog](http://keepachangelog.com/) for recommendations on how to structure this file.
-
-## [Unreleased]
+## 1.0.0 - 19/05/2021
 
 - Initial release
