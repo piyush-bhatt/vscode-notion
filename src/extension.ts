@@ -1,27 +1,31 @@
-// The module 'vscode' contains the VS Code extensibility API
-// Import the module and reference it with the alias vscode in your code below
-import * as vscode from 'vscode';
+import * as vscode from "vscode";
+import { ToDoListProvider } from "./toDoList";
+import { getListItems, getNotionKey, getQuickInput, getQuickPick, outputChannel, setNotionKey } from "./utils";
 
-// this method is called when your extension is activated
-// your extension is activated the very first time the command is executed
 export function activate(context: vscode.ExtensionContext) {
-
-	// Use the console to output diagnostic information (console.log) and errors (console.error)
-	// This line of code will only be executed once when your extension is activated
-	console.log('Congratulations, your extension "notion" is now active!');
-
-	// The command has been defined in the package.json file
-	// Now provide the implementation of the command with registerCommand
-	// The commandId parameter must match the command field in package.json
-	let disposable = vscode.commands.registerCommand('notion.helloWorld', () => {
-		// The code you place here will be executed every time your command is executed
-
-		// Display a message box to the user
-		vscode.window.showInformationMessage('Hello World from Notion!');
-	});
-
-	context.subscriptions.push(disposable);
+  let disposables: vscode.Disposable[] = [];
+  const todoListProvider = new ToDoListProvider();
+  disposables.push(vscode.window.registerTreeDataProvider("notion.todo", todoListProvider));
+  disposables.push(
+    vscode.commands.registerCommand("notion.addKey", async () => {
+      const notionKey: string = getNotionKey();
+      const userInput = await getQuickInput("Enter Notion Key", notionKey);
+      if (userInput) {
+        setNotionKey(userInput);
+      }
+    })
+  );
+  disposables.push(
+    vscode.commands.registerCommand("notion.todo.refresh", async () => {
+      todoListProvider.refresh();
+    })
+  );
+  disposables.push(
+    vscode.commands.registerCommand("notion.todo.listItems", async (id: string) => {
+      const items = await getListItems(id);
+      const selection = await getQuickPick("Items", items);
+    })
+  );
 }
 
-// this method is called when your extension is deactivated
 export function deactivate() {}
