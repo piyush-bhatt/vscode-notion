@@ -61,8 +61,8 @@
       "activitybar": [
         {
           "id": "notion",
-          "title": "Notion",
-          "icon": "media/icon/icon.png"
+          "title": "Notion To Do's",
+          "icon": "media/icon/icon.svg"
         }
       ]
     },
