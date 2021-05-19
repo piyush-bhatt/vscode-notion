@@ -11,7 +11,7 @@ export const setNotionKey = (key: string) =>
 
 export const getQuickInput = (prompt: string, value: string = "") => vscode.window.showInputBox({ prompt, value });
 
-export const getQuickPick = (placeHolder: string, items: string[]) =>
+export const getQuickPick = (placeHolder: string, items: vscode.QuickPickItem[]) =>
   vscode.window.showQuickPick(items, { canPickMany: true, placeHolder });
 
 export const getToDoLists = async (): Promise<ToDoListEntry[]> => {
@@ -32,9 +32,9 @@ export const getToDoLists = async (): Promise<ToDoListEntry[]> => {
 
 export const getListItems = async (id: string) => {
   const items = await getBlockChildren(id);
-  return items.results.reduce((acc: string[], cur: any) => {
+  return items.results.reduce((acc: vscode.QuickPickItem[], cur: any) => {
     if (cur.type === "to_do") {
-      acc.push(cur.to_do.text[0].plain_text);
+      acc.push({ label: cur.to_do.text[0].plain_text, picked: cur.to_do.checked });
     }
     return acc;
   }, []);

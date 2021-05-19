@@ -23,7 +23,7 @@ export function activate(context: vscode.ExtensionContext) {
   disposables.push(
     vscode.commands.registerCommand("notion.todo.listItems", async (id: string) => {
       const items = await getListItems(id);
-      const selection = await getQuickPick("Items", items);
+      await getQuickPick("Read-only list of ToDo items", items);
     })
   );
 }

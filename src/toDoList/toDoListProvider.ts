@@ -30,6 +30,7 @@ export class ToDoListProvider implements vscode.TreeDataProvider<ToDoTreeItem> {
         command: "notion.todo.listItems",
         arguments: [item.id],
       };
+      toDoTreeItem.iconPath = new vscode.ThemeIcon('checklist');
       return toDoTreeItem;
     });
     return items;
