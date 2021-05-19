@@ -14,28 +14,38 @@ export const getQuickInput = (prompt: string, value: string = "") => vscode.wind
 export const getQuickPick = (placeHolder: string, items: vscode.QuickPickItem[]) =>
   vscode.window.showQuickPick(items, { canPickMany: true, placeHolder });
 
-export const getToDoLists = async (): Promise<ToDoListEntry[]> => {
+export const getToDoLists = async () => {
   let toDoLists: ToDoListEntry[] = [];
-  const pages = await fetchPages();
-  if (pages.results.length > 0) {
-    const lists = pages.results.filter((item: any) => !item.archived);
-    lists.forEach((list) => {
-      if (list.properties.title) {
-        const id = list.id;
-        const title = (list.properties.title as any).title[0]["plain_text"];
-        toDoLists.push({ id, title });
-      }
-    });
+  try {
+    const pages = await fetchPages();
+    if (pages.results.length > 0) {
+      const lists = pages.results.filter((item: any) => !item.archived);
+      lists.forEach((list) => {
+        if (list.properties.title) {
+          const id = list.id;
+          const title = (list.properties.title as any).title[0]["plain_text"];
+          toDoLists.push({ id, title });
+        }
+      });
+    }
+  } catch (error) {
+    outputChannel.appendLine(`Encountered exception in getToDoLists()\n${error}`);
+  } finally {
+    return toDoLists;
   }
-  return toDoLists;
 };
 
 export const getListItems = async (id: string) => {
-  const items = await getBlockChildren(id);
-  return items.results.reduce((acc: vscode.QuickPickItem[], cur: any) => {
-    if (cur.type === "to_do") {
-      acc.push({ label: cur.to_do.text[0].plain_text, picked: cur.to_do.checked });
-    }
-    return acc;
-  }, []);
+  try {
+    const items = await getBlockChildren(id);
+    return items.results.reduce((acc: vscode.QuickPickItem[], cur: any) => {
+      if (cur.type === "to_do") {
+        acc.push({ label: cur.to_do.text[0].plain_text, picked: cur.to_do.checked });
+      }
+      return acc;
+    }, []);
+  } catch (error) {
+    outputChannel.appendLine(`Encountered exception in getToDoLists()\n${error}`);
+    return [];
+  }
 };

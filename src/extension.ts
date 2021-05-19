@@ -1,6 +1,6 @@
 import * as vscode from "vscode";
 import { ToDoListProvider } from "./toDoList";
-import { getListItems, getNotionKey, getQuickInput, getQuickPick, outputChannel, setNotionKey } from "./utils";
+import { getListItems, getNotionKey, getQuickInput, getQuickPick, setNotionKey } from "./utils";
 
 export function activate(context: vscode.ExtensionContext) {
   let disposables: vscode.Disposable[] = [];
